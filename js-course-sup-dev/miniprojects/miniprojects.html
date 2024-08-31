@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./miniprojects.css" />
+    <title>Mini Projects</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <input class="result-display" type="button" value="0" />
+      <button>C</button>
+      <button>0</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>+</button>
+      <button>-</button>
+      <button>/</button>
+      <button>*</button>
+      <button>=</button>
+      <button>.</button>
+    </div>
+
+    <div class="game">
+      <p>Rock Paper Scissors</p>
+      <button class="rock move-button">
+        <img src="images/rock-emoji.png" class="move-icon" />
+      </button>
+      <button class="paper move-button">
+        <img src="images/paper-emoji.png" class="move-icon" />
+      </button>
+      <button class="scissors move-button">
+        <img src="images/scissors-emoji.png" class="move-icon" />
+      </button>
+      <p class="js-result"></p>
+      <p class="js-moves"></p>
+      <p class="game-result"></p>
+      <button class="reset-score">Reset</button>
+      <button class="auto-play">Auto Play</button>
+      <div class="reset-buttons">
+        <P>Are you sure you want to reset the score?</P><br>
+        <div class="buttons">
+          <button class="reset-btn">Yes</button>
+          <button class="close-reset-btn">No</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart">
+      <p>Cart Quantity</p>
+      <button class="show-quantity">Show Quantity</button>
+      <button class="add">Add to Cart</button>
+      <button class="plus-two">+2</button>
+      <button class="plus-three">+3</button>
+      <button class="minus">Remove from cart</button>
+      <button class="minus-two">-2</button>
+      <button class="minus-three">-3</button>
+      <button class="reset-cart">Reset Cart</button>
+
+      <p>Amazon Shipping Calculator</p>
+      <input
+        type="text"
+        name="tax"
+        class="tax-input"
+        placeholder="Cost of order"
+      />
+      <button class="tax-btn">Calculate</button>
+
+      <p class="display"></p>
+    </div>
+
+    <div class="flip-coin-game">
+      <h1>Flip a Coin</h1>
+      <button class="heads">
+        <img src="./images/heads.png" alt="heads-coin" class="coin" />
+      </button>
+      <button class="tails">
+        <img src="./images/tails.png" alt="tails-coin" class="coin" />
+      </button>
+      <button class="reset-flip-coin">Reset</button>
+      <p class="result-flip-coin"></p>
+    </div>
+
+    <div class="todo-list">
+      <h1>To-Do List</h1>
+      <div class="todo-inputs">
+        <input type="text" id="taskInput" placeholder="Todo name" />
+        <input type="date" name="date" id="date" />
+        <button id="addTaskBtn">Add Task</button>
+      </div>
+
+      <div id="todoDisplay"></div>
+    </div>
+
+    <script src="./miniprojects.js"></script>
+  </body>
+</html>
