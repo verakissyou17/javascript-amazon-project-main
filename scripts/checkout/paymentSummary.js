@@ -65,6 +65,4 @@ export function renderPaymentSummary () {
 
       document.querySelector('.js-payment-summary')
         .innerHTML = paymentSummaryHTML;
-
-   console.log({productPriceCents}, {shippingPriceCents});
 };

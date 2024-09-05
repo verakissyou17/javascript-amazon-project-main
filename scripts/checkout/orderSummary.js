@@ -70,6 +70,18 @@ cart.forEach((cartItem) => {
         </div>`;
 });
 
+document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
+
+function updateCartQuantity() {
+    const cartQuantity = calculateCartQuantity();
+
+    document.querySelector(
+    ".js-return-to-home-link"
+    ).innerHTML = `${cartQuantity} items`;
+};
+
+updateCartQuantity();
+
 function deliveryOptionsHTML (matchingProduct, cartItem) {
     let html = '';
     
@@ -103,18 +115,6 @@ function deliveryOptionsHTML (matchingProduct, cartItem) {
     });
     return html;
 };
-
-document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
-
-function updateCartQuantity() {
-    const cartQuantity = calculateCartQuantity();
-
-    document.querySelector(
-    ".js-return-to-home-link"
-    ).innerHTML = `${cartQuantity} items`;
-};
-
-updateCartQuantity();
 
 document.querySelectorAll(".js-delete-link").forEach((deleteLink) => {
     deleteLink.addEventListener("click", (event) => {
