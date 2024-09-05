@@ -1,3 +1,6 @@
+import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import {isWeekend} from './isWeekend.js';
+
 const foodCost = 5 + 2 * 3 + 9;
 console.log(`Cost of food: $${foodCost}`);
 const foodTax = foodCost * 0.1;
@@ -270,7 +273,7 @@ console.log("Word count: ", countWords(words));
 const colors = ["green", "red", "blue", "red", "green", "red", "blue", "red"];
 console.log('Colors: ', colors);
 
-function findIndex(array, word) {
+function findIndexOfColors(array, word) {
   for (let i = 0; i < array.length; i++) {
     if (array[i] === word) {
       return i;
@@ -279,8 +282,8 @@ function findIndex(array, word) {
   return -1;
 };
 
-console.log("Index of search: ", findIndex(colors, "yellow"));
-console.log("Index of search: ", findIndex(colors, "red"));
+console.log("Index of search: ", findIndexOfColors(colors, "yellow"));
+console.log("Index of search: ", findIndexOfColors(colors, "red"));
 
 function findIndex(colors, color) {
   for (let i = 0; i < colors.length; i++) {
@@ -558,3 +561,15 @@ const multiply = (num1, num2) => console.log(num1 * num2);
  multiply(3, 2);
 
 console.log(colors.indexOf('red') === 1);
+
+const today = dayjs().format('MMMM D');
+const monthForward = dayjs().add(1, 'months').format('MMMM D');
+const monthBackward = dayjs().subtract(1, 'months').format('MMMM D');
+const dayOfWeek = dayjs().format('dddd');
+console.log({today}, {monthForward}, {monthBackward});
+console.log(dayOfWeek);
+
+
+console.log(isWeekend(dayOfWeek));
+console.log(isWeekend(dayjs().add(3, 'days').format('dddd')));
+console.log(isWeekend(dayjs().subtract(3, 'days').format('dddd')));
