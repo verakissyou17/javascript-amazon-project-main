@@ -166,6 +166,7 @@ document.querySelectorAll(".js-save-link").forEach((saveLink) => {
     quantityLabel.innerHTML = newQuantity;
 
     updateCartQuantity();
+    renderPaymentSummary();
     });
 });
 
