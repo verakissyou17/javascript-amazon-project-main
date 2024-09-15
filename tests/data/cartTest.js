@@ -1,4 +1,4 @@
-import { addToCart, cart, loadFromStorage, removeFromCart } from "../../data/cart.js";
+import { addToCart, cart, loadFromStorage, removeFromCart, updateDeliveryOption } from "../../data/cart.js";
 
 /*
 Best Practice: Test each condition of an if-statement
@@ -120,5 +120,55 @@ quantity = Number(quantitySelector.value);
     expect(cart.length).toEqual(1);
     expect(localStorage.setItem).toHaveBeenCalledTimes(1);
     expect(localStorage.setItem).toHaveBeenCalledWith('cart', JSON.stringify(cart));
+  });
+});
+
+describe('updateDeliveryOtion', () => {
+  const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
+  beforeEach(() => {
+    spyOn(localStorage, 'setItem');
+  });
+
+  it('updates the delivery option for a product', () => {
+    spyOn(localStorage, "getItem").and.callFake(() => {
+      return JSON.stringify([{
+        productId: productId1,
+        quantity: 1,
+        deliveryOptionId: '1'
+      }]);
+    });
+
+    loadFromStorage();
+
+    updateDeliveryOption(productId1, '3');
+    expect(cart[0].deliveryOptionId).toEqual('3');
+    expect(cart[0].productId).toEqual(productId1);
+    expect(cart.length).toEqual(1);
+    expect(cart[0].quantity).toEqual(1);
+    expect(localStorage.setItem).toHaveBeenCalledTimes(1);
+    expect(localStorage.setItem).toHaveBeenCalledWith('cart', JSON.stringify([{
+      productId: productId1,
+      quantity: 1,
+      deliveryOptionId: '3'
+    }]));
+  });
+
+  it('updates the delivery option for a product that is not in the cart', () => {
+    spyOn(localStorage, "getItem").and.callFake(() => {
+      return JSON.stringify([{
+        productId: productId1,
+        quantity: 1,
+        deliveryOptionId: '1'
+      }]);
+    });
+
+    loadFromStorage();
+
+    updateDeliveryOption('does not exist', '3');
+    expect(cart[0].deliveryOptionId).toEqual('1');
+    expect(cart[0].productId).toEqual(productId1);
+    expect(cart.length).toEqual(1);
+    expect(cart[0].quantity).toEqual(1);
+    expect(localStorage.setItem).toHaveBeenCalledTimes(0);
   });
 });

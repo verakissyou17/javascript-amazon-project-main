@@ -89,6 +89,7 @@ export function calculateCartQuantity() {
          matchingItem = cartItem;
      }
     });
+    if(!matchingItem) return;
 
     matchingItem.deliveryOptionId = deliveryOptionId;
     saveToStorage();
