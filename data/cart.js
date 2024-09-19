@@ -19,8 +19,6 @@ export function loadFromStorage () {
 };
 
 export function addToCart (productId) {
-  const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-  const quantity = Number(quantitySelector.value);
 
     let matchingItem;
 
@@ -31,11 +29,11 @@ export function addToCart (productId) {
     });
 
     if(matchingItem) {
-     matchingItem.quantity += quantity;
+     matchingItem.quantity += 1;
     } else {
      cart.push({
          productId, 
-         quantity: quantity,
+         quantity: 1,
          deliveryOptionId: '1'
         });
     }
