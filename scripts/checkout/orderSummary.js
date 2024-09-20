@@ -5,7 +5,7 @@ import {
     updateQuantity,
     updateDeliveryOption
   } from "../../data/cart.js";
-  import { products, getProduct } from "../../data/products.js";
+  import { getProduct } from "../../data/products.js";
   import { formatCurrency } from "../utils/money.js";
   import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
   import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
@@ -52,7 +52,7 @@ cart.forEach((cartItem) => {
                 <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
                     Update
                 </span>
-                <input type="number" class="quantity-input js-quantity-input-${matchingProduct.id}" />
+                <input type="number" min="0" max="100" class="quantity-input js-quantity-input-${matchingProduct.id}" />
                 <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
                     Save
                 </span>
