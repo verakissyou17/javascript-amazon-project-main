@@ -158,3 +158,12 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+.clothing-link {
+  text-decoration: none;
+  color: rgb(1, 124, 182);
+}
+
+.clothing-link:hover {
+  text-decoration: underline;
+}

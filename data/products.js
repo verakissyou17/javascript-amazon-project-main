@@ -49,11 +49,11 @@ class Clothing extends Product {
   extraInfoHTML() {
     // super.extraInfoHTML();
     return `
-    <a href="${this.sizeChartLink}" target="_blank">
+    <a class="clothing-link" href="${this.sizeChartLink}" target="_blank">
       Size Chart
     </a>`;
   }
-};
+}
 
 export const products = [
   {
