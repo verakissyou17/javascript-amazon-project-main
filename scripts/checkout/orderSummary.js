@@ -52,7 +52,7 @@ cart.forEach((cartItem) => {
                 <span class="update-quantity-link link-primary js-update-quantity" data-product-id="${matchingProduct.id}">
                     Update
                 </span>
-                <input type="number" min="0" max="100" class="quantity-input js-quantity-input-${matchingProduct.id}" />
+                <input type="number" min="0" max="10" class="quantity-input js-quantity-input-${matchingProduct.id}" />
                 <span class="save-quantity-link link-primary js-save-link" data-product-id="${matchingProduct.id}">
                     Save
                 </span>
@@ -149,8 +149,8 @@ document.querySelectorAll(".js-save-link").forEach((saveLink) => {
     );
     const newQuantity = Number(inputValue.value);
 
-    if (newQuantity < 0 || newQuantity >= 1000) {
-        alert("Quantity must be at least 0 and less than 1000");
+    if (newQuantity <= 0 || newQuantity >= 10) {
+        alert("Quantity must be at least 0 and less than 10");
         return;
     }
 

@@ -25,7 +25,7 @@ function Cart(localStorageKey) {
       localStorage.setItem(localStorageKey, JSON.stringify(this.cartItems));
     },
 
-    addToCart(productId) {
+    addToCart(productId, quantity) {
       let matchingItem;
 
       this.cartItems.forEach((cartItem) => {
