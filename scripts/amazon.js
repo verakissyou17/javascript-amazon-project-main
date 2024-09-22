@@ -1,7 +1,16 @@
 import { addToCart, calculateCartQuantity} from '../data/cart.js';
-import {products, loadProducts} from '../data/products.js';
+import {products, loadProductsFetch} from '../data/products.js';
 
-loadProducts(renderProductsGrid);
+renderPage();
+
+async function renderPage() {
+    try {
+        await loadProductsFetch();
+    } catch (error) {
+        throw new Error(`Unespected error.Plese try again later.${error}`);
+    }
+    renderProductsGrid();
+}
 
 function renderProductsGrid () {
     let productsHTML = '';
