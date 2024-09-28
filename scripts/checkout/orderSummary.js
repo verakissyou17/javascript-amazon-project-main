@@ -8,25 +8,19 @@ import {
   import { getProduct } from "../../data/products.js";
   import { formatCurrency } from "../utils/money.js";
   import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
-  import { deliveryOptions, getDeliveryOption } from "../../data/deliveryOptions.js";
-import { renderPaymentSummary } from "./paymentSummary.js";
+  import { deliveryOptions,  getDeliveryDate } from "../../data/deliveryOptions.js";
+  import { renderPaymentSummary } from "./paymentSummary.js";
 
   
 export function renderOrderSummary () {
 
-//Model, View
 let cartSummaryHTML = "";
 
 cart.forEach((cartItem) => {
     const productId = cartItem.productId;
-    const matchingProduct = getProduct(productId);   
-    const deliveryOptionId = cartItem.deliveryOptionId;
+    const matchingProduct = getProduct(productId);  
 
-    const deliveryOption = getDeliveryOption(deliveryOptionId);
-    
-    const today = dayjs();
-    const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
-    const dateString = deliveryDate.format('dddd, MMMM D');
+    const dateString = getDeliveryDate(cartItem);
 
     cartSummaryHTML += 
         `<div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
@@ -72,7 +66,7 @@ cart.forEach((cartItem) => {
 
 document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 
-function updateCartQuantity() {
+function renderCartQuantity() {
     const cartQuantity = calculateCartQuantity();
 
     document.querySelector(
@@ -80,7 +74,7 @@ function updateCartQuantity() {
     ).innerHTML = `${cartQuantity} items`;
 };
 
-updateCartQuantity();
+renderCartQuantity();
 
 function deliveryOptionsHTML (matchingProduct, cartItem) {
     let html = '';
@@ -125,7 +119,7 @@ document.querySelectorAll(".js-delete-link").forEach((deleteLink) => {
         `.js-cart-item-container-${productId}`
     );
     container.remove();
-    updateCartQuantity();
+    renderCartQuantity();
     renderPaymentSummary();
     });
 });
@@ -164,7 +158,7 @@ document.querySelectorAll(".js-save-link").forEach((saveLink) => {
     );
     quantityLabel.innerHTML = newQuantity;
 
-    updateCartQuantity();
+    renderCartQuantity();
     renderPaymentSummary();
     });
 });

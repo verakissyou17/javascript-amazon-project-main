@@ -3,6 +3,8 @@ import  {getProduct} from '../../data/products.js';
 import { getDeliveryOption } from '../../data/deliveryOptions.js';
 import {formatCurrency} from '../utils/money.js';
 import { addOrder } from '../../data/orders.js';
+import { renderOrderSummary } from './orderSummary.js';
+
 export function renderPaymentSummary () {
    
    let productPriceCents = 0;
@@ -69,21 +71,25 @@ export function renderPaymentSummary () {
       document.querySelector('.js-payment-summary')
         .innerHTML = paymentSummaryHTML;
 
-        document.querySelector('.js-place-order').addEventListener('click', async () => {
+      document.querySelector('.js-place-order')
+        .addEventListener('click', async () => {
           try {
-            const response = await fetch('https://supersimplebackend.dev/orders', {
+            const response = await fetch(
+              'https://supersimplebackend.dev/orders', {
               method: 'POST',
               headers: {'Content-Type': 'application/json'},
               body: JSON.stringify({cart: cart})
-            })
-        
-         const order = await response.json();
-         addOrder(order);
-          }catch (error) {
+            })       
+            const order = await response.json();
+            addOrder(order);
+          } catch (error) {
             console.log('Unespected error.Try again later.')
           }
-
+          localStorage.removeItem('cart');
+          renderOrderSummary();
+          renderPaymentSummary();
           window.location.href = 'orders.html';
+          console.log('orders')
         })
 };
 
