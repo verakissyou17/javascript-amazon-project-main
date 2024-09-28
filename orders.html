@@ -20,16 +20,16 @@
   <div class="amazon-header">
     <div class="amazon-header-left-section">
       <a href="index.html" class="header-link">
-        <img class="amazon-logo" src="images/amazon-logo-white.png">
-        <img class="amazon-mobile-logo" src="images/amazon-mobile-logo-white.png">
+        <img class="amazon-logo" src="images/amazon-logo-white.png" alt="amazon-logo">
+        <img class="amazon-mobile-logo" src="images/amazon-mobile-logo-white.png" alt="amazon-mobile-logo">
       </a>
     </div>
 
     <div class="amazon-header-middle-section">
       <input class="search-bar" type="text" placeholder="Search">
 
-      <button class="search-button">
-        <img class="search-icon" src="images/icons/search-icon.png">
+      <button class="search-button" name="search-button">
+        <img class="search-icon" src="images/icons/search-icon.png" aria-labelledby="search-button" alt="search-button">
       </button>
     </div>
 
@@ -39,10 +39,10 @@
         <span class="orders-text">& Orders</span>
       </a>
 
-      <a class="cart-link header-link" href="checkout.html">
-        <img class="cart-icon" src="images/icons/cart-icon.png">
-        <div class="cart-quantity js-cart-quantity">0</div>
-        <div class="cart-text">Cart</div>
+      <a class="cart-link header-link" href="checkout.html" name="cart-link">
+        <img class="cart-icon" src="images/icons/cart-icon.png" aria-labelledby="cart-link" alt="cart-icon">
+        <div class="cart-quantity js-cart-quantity" aria-labelledby="cart-link">0</div>
+        <div class="cart-text" aria-labelledby="cart-link">Cart</div>
       </a>
     </div>
   </div>
