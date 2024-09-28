@@ -14,11 +14,12 @@ import { formatCurrency } from '../scripts/utils/money.js';
   
      return products = productsData.map((productDetails) => {
         if(productDetails.type === 'clothing') {
-          const clothing =  new Clothing(productDetails);
-          return clothing;
+         return new Clothing(productDetails);
+        } else if(productDetails.type === 'appliance') {
+          return new Appliances(productDetails);
+        } else {
+          return new Product(productDetails);
         }
-        const product =  new Product(productDetails);
-        return product;
       });
     } catch (error) {
       document.body.innerHTML = `<h1 class="error-message">${error.message}</h1>`;
@@ -64,9 +65,27 @@ import { formatCurrency } from '../scripts/utils/money.js';
     extraInfoHTML() {
       // super.extraInfoHTML();
       return `
-      <a class="clothing-link" href="${this.sizeChartLink}" target="_blank">
+      <a class="link" href="${this.sizeChartLink}" target="_blank">
         Size Chart
       </a>`;
+    }
+  };
+
+  class Appliances extends Product {
+    instructionsLink;
+    warrantyLink;
+    constructor(productDetails) {
+      super(productDetails);
+      this.instructionsLink = productDetails.instructionsLink;
+      this.warrantyLink = productDetails.warrantyLink;
+    }
+    extraInfoHTML() {
+      return `
+      <a class="link" href="${this.instructionsLink}" target="_blank">
+        Instructions
+      </a>
+      <a class="link" href="${this.warrantyLink}" target="_blank">Warranty</a>
+      `
     }
   };
   

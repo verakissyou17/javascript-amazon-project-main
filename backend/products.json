@@ -54,6 +54,9 @@
       "count": 2197
     },
     "priceCents": 1899,
+    "type":"appliance",
+    "instructionsLink": "images/appliance-instructions.png",
+    "warrantyLink": "images/appliance-warranty.png",
     "keywords": [
       "toaster",
       "kitchen",
@@ -239,6 +242,9 @@
       "count": 846
     },
     "priceCents": 3074,
+    "type":"appliance",
+    "instructionsLink": "images/appliance-instructions.png",
+    "warrantyLink": "images/appliance-warranty.png",
     "keywords": [
       "water boiler",
       "appliances",
@@ -544,6 +550,9 @@
       "count": 1211
     },
     "priceCents": 2250,
+    "type":"appliance",
+    "instructionsLink": "images/appliance-instructions.png",
+    "warrantyLink": "images/appliance-warranty.png",
     "keywords": [
       "coffeemakers",
       "kitchen",
@@ -604,6 +613,9 @@
       "count": 3
     },
     "priceCents": 10747,
+    "type":"appliance",
+    "instructionsLink": "images/appliance-instructions.png",
+    "warrantyLink": "images/appliance-warranty.png",
     "keywords": [
       "food blenders",
       "kitchen",

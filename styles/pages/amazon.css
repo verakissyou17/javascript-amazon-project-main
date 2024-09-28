@@ -159,11 +159,11 @@
   border-radius: 50px;
 }
 
-.clothing-link {
+.link {
   text-decoration: none;
   color: rgb(1, 124, 182);
 }
 
-.clothing-link:hover {
+.link:hover {
   text-decoration: underline;
 }
