@@ -5,7 +5,7 @@ import { formatCurrency } from '../scripts/utils/money.js';
 
   export async function loadProducts () {
     try {
-      const response = await fetch('../backend/products.json');
+      const response = await fetch('https://supersimplebackend.dev/products');
       if (!response.ok) {
         throw new Error(`Unexpected error! Please, try again later! 
           ${response.status}`);
