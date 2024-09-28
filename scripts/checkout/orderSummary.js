@@ -29,6 +29,7 @@ cart.forEach((cartItem) => {
             <img
                 class="product-image"
                 src="${matchingProduct.image}"
+                alt="${matchingProduct.name}"
             />  
             <div class="cart-item-details">
                 <div class="product-name js-product-name-${matchingProduct.id}">

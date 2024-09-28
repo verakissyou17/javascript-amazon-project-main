@@ -20,7 +20,7 @@ function renderProductsGrid () {
         <div class="product-container">
             <div class="product-image-container">
             <img class="product-image"
-                src="${product.image}">
+                src="${product.image}" alt="${product.name}">
             </div>
     
             <div class="product-name limit-text-to-2-lines">
@@ -29,7 +29,7 @@ function renderProductsGrid () {
     
             <div class="product-rating-container">
             <img class="product-rating-stars"
-                src="${product.getStarsUrl()}">
+                src="${product.getStarsUrl()}" alt="rating-stars">
             <div class="product-rating-count link-primary">
                 ${product.rating.count}
             </div>
@@ -40,7 +40,8 @@ function renderProductsGrid () {
             </div>
     
             <div class="product-quantity-container">
-            <select class="js-quantity-selector-${product.id}">
+            <label for="quantity-${product.id}">Quantity:</label>
+            <select id="quantity-${product.id}" class="js-quantity-selector-${product.id}">
                 <option selected value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -59,9 +60,9 @@ function renderProductsGrid () {
             <div class="product-spacer"></div>
     
             <div class="added-to-cart js-added-${product.id}">
-            <img src="images/icons/checkmark.png">
+            <img src="images/icons/checkmark.png" alt="checkmark-icon">
             Added
-            </div>
+            </div> 
     
             <button class="add-to-cart-button button-primary js-add-to-cart" data-product-id="${product.id}">
             Add to Cart

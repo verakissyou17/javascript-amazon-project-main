@@ -52,7 +52,7 @@ export function renderOrdersPage () {
 
           <div class="order-details-grid">
             <div class="product-image-container">
-              <img src="${matchingProduct.image}">
+              <img src="${matchingProduct.image}" alt="${matchingProduct.name}">
             </div>
 
             <div class="product-details">
@@ -65,8 +65,8 @@ export function renderOrdersPage () {
               <div class="product-quantity">
                 Quantity: ${product.quantity}
               </div>
-              <button class="buy-again-button button-primary js-buy-again" data-product-id="${matchingProduct.id}">
-                <img class="buy-again-icon" src="images/icons/buy-again.png">
+              <button class="buy-again-button button-primary js-buy-again" data-product-id="${matchingProduct.id}" name="buy-again-button">
+                <img class="buy-again-icon" src="images/icons/buy-again.png" alt="buy-again-button" aria-labelledby="buy-again-button">
                 <span class="buy-again-message">Buy it again</span>
               </button>
             </div>

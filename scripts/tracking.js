@@ -50,7 +50,7 @@ function renderTrackingPage() {
      Quantity: ${product.quantity}
    </div>
 
-   <img class="product-image" src="${matchingProduct.image}">
+   <img class="product-image" src="${matchingProduct.image}" alt="${matchingProduct.name}">
 
    <div class="progress-labels-container">
      <div class="progress-label">
