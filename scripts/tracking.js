@@ -53,13 +53,13 @@ function renderTrackingPage() {
    <img class="product-image" src="${matchingProduct.image}" alt="${matchingProduct.name}">
 
    <div class="progress-labels-container">
-     <div class="progress-label">
+     <div class="progress-label js-progress-label-${percent}">
        Preparing ${percent <= 49 ? `${percent}%` : ''}
      </div>
-     <div class="progress-label current-status">
+     <div class="progress-label js-progress-label-${percent}">
        Shipped ${percent >= 50 && percent <= 99 ? `${percent}%` : ''}
      </div>
-     <div class="progress-label">
+     <div class="progress-label js-progress-label-${percent}">
        Delivered ${percent === 100 ? `Delivered` : ''}
      </div>
    </div>
@@ -80,12 +80,18 @@ function renderTrackingPage() {
 
   renderCartQuantity();
 
-  const progressBar = document.querySelector('.js-progress-bar');
-  const { percent } = progressBar.dataset;
-  progressBar.style.width = `${percent}%`;
-
-  if(percent > 100) {
-    progressBar.style.width = `0%`;
-    orders.pop();
+  function calculateProgressBar () {
+    const progressBar = document.querySelector('.js-progress-bar');
+    const { percent } = progressBar.dataset;
+    progressBar.style.width = `${percent}%`;
+  
+    if(percent <= 49) {
+      document.querySelector(`.js-progress-label-${percent}`).classList.add('current-status');
+    } else if(percent >= 50 && percent <= 99) {
+      document.querySelector(`.js-progress-label-${percent}`).classList.add('current-status');
+    } else if(percent > 100) {
+      document.querySelector(`.js-progress-label-${percent}`).classList.add('current-status');
+    }
   }
+ calculateProgressBar();
 }
