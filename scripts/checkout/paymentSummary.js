@@ -89,7 +89,6 @@ export function renderPaymentSummary () {
           renderOrderSummary();
           renderPaymentSummary();
           window.location.href = 'orders.html';
-          console.log('orders')
         })
 };
 
